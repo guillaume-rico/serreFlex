@@ -37,6 +37,7 @@ Retrouvez le schéma électrique de l'ensemble ici :
 Retrouvez ici la liste du matériel nécéssaire :
 
 | Code | Nombre | Matériel                 | Exemple de Référénce | Remarque |
+| ---- | ------ | -------------------------| -------------------- | -------- |
 | KM11 KM12 KM21 KM22 | 4 | Contacteur 3P + Aux. NC  | Siemens - 3RT2015-1BB | Il serait souihaitable de prendre des contacteurs mécaniquement bloqué |
 | Q10 Q20  | 2 | Disjoncteur de puissance | Siemens - 3RV2011-0K |
 | S1H/S1B S2H/S2B | 2 | Switch 3 positions | Eaton - 216520 |  |
