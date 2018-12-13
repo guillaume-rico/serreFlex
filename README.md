@@ -18,8 +18,6 @@ Cet outil doit permettre de répondre aux contraintes suivantes :
 Le moteurs utilisés sont des moteurs triphasés de 250W (0.76A). En tourant dans un sens ils ouvrent les serres, dans l'autre sens il ferment la serre.
 Pour ouvrir, il suffit d'alimenter les moteurs. Pour fermer, les moteurs sont alimentés en inversant deux phases.
 
-
- 
 # Réalisation 
 
 ## Schéma électrique
@@ -28,17 +26,16 @@ Les schémas électrique sont sidponibles au format QET et au format PDF.
 Le format QET est modifiable par QElectrotech (Logiciel gratuit et open source) [disponible ici](https://qelectrotech.org/).
 
 Retrouvez le schéma électrique de l'ensemble ici :
- * Format [QET]() 
- * Format [PDF]()
+ * Format [QET](https://github.com/guillaume-rico/serreFlex/raw/master/sch/ouverture_serre.qet) 
+ * Format [1.0 PDF](https://github.com/guillaume-rico/serreFlex/raw/master/sch/ouverture_serre_1.0.pdf)
 
-
-# Nomenclature
+## Nomenclature
 
 Retrouvez ici la liste du matériel nécéssaire :
 
 | Code | Nombre | Matériel                 | Exemple de Référénce | Remarque |
 | ---- | ------ | -------------------------| -------------------- | -------- |
-| KM11 KM12 KM21 KM22 | 4 | Contacteur 3P + Aux. NC  | Siemens - 3RT2015-1BB | Il serait souihaitable de prendre des contacteurs mécaniquement bloqué |
+| KM11 KM12 KM21 KM22 | 4 | Contacteur 3P + Aux. NC  | Siemens - 3RT2015-1BB | Il serait souihaitable de prendre des contacteurs mécaniquement bloqués |
 | Q10 Q20  | 2 | Disjoncteur de puissance | Siemens - 3RV2011-0K |
 | S1H/S1B S2H/S2B | 2 | Switch 3 positions | Eaton - 216520 |  |
 | S1H/S1B S2H/S2B | 2 | Porte-Ètiquette |  Eaton 216485 | Trouver un porte étiquette avec des fleches |
@@ -53,4 +50,5 @@ Retrouvez ici la liste du matériel nécéssaire :
 | SAU | 1 | Arret d'urgence | Eaton 216516 - M22-PV/K11 |  |
 | SAU | 1 | Etiquette Arret d'urgence | Eaton 216465 - M22-XAK1 |  |
 
+# Code
 
