@@ -18,6 +18,29 @@ Cet outil doit permettre de répondre aux contraintes suivantes :
 Le moteurs utilisés sont des moteurs triphasés de 250W (0.76A). En tourant dans un sens ils ouvrent les serres, dans l'autre sens il ferment la serre.
 Pour ouvrir, il suffit d'alimenter les moteurs. Pour fermer, les moteurs sont alimentés en inversant deux phases.
 
+Etape par étape :
+L'utilisateur tourne le bouton dans le sens de la montée :
+
+![Bouton montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/bouton_montee.png)
+
+Cela permet au courant de parcourir la branche de gauche du circuit de pilotage. Ce faisant, il alimente la bobine du contacteur :
+
+![Commande montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/commande_montee.png)
+
+La bobine enclenche l'alimentation du moteur :
+
+![Commande montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/puissance_montee.png)
+
+Le moteur s'enclenche et ouvre le volet latéral de la serre. Lorsque le volet est completement ouvert un contact fin de course vient ouvrir le circuit de commande pour arreter le moteur
+
+![Arret montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/fin_de_course_montee.png)
+
+Et a contrario lors de la descente :
+![Commande montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/commande_descente.png)
+![Commande montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/puissance_descente.png)
+![Commande montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/puissance_descente.png)
+
+
 # Réalisation 
 
 ## Schéma électrique

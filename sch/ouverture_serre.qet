@@ -360,6 +360,7 @@
                 <elementInformations>
                     <elementInformation name="formula" show="1">F1</elementInformation>
                     <elementInformation name="label" show="1">F1</elementInformation>
+                    <elementInformation name="comment" show="1">10A</elementInformation>
                 </elementInformations>
                 <dynamic_texts/>
                 <texts_groups/>
