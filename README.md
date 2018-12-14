@@ -18,7 +18,10 @@ Cet outil doit permettre de répondre aux contraintes suivantes :
 Le moteurs utilisés sont des moteurs triphasés de 250W (0.76A). En tourant dans un sens ils ouvrent les serres, dans l'autre sens il ferment la serre.
 Pour ouvrir, il suffit d'alimenter les moteurs. Pour fermer, les moteurs sont alimentés en inversant deux phases.
 
+### Pilotage manuel 
+
 Etape par étape :
+
 L'utilisateur tourne le bouton dans le sens de la montée :
 
 ![Bouton montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/bouton_montee.png)
@@ -29,29 +32,49 @@ Cela permet au courant de parcourir la branche de gauche du circuit de pilotage.
 
 La bobine enclenche l'alimentation du moteur :
 
-![Commande montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/puissance_montee.png)
+![Puissance montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/puissance_montee.png)
 
 Le moteur s'enclenche et ouvre le volet latéral de la serre. Lorsque le volet est completement ouvert un contact fin de course vient ouvrir le circuit de commande pour arreter le moteur
 
 ![Arret montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/fin_de_course_montee.png)
 
 Et a contrario lors de la descente :
-![Commande montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/commande_descente.png)
-![Commande montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/puissance_descente.png)
-![Commande montée](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/puissance_descente.png)
 
+![Bouton descente](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/bouton_descente.png)
+
+![Commande descente](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/commande_descente.png)
+
+L'alimentation de deux des phases du moteur est inversée permettant la rotation dans l'autre sens :
+
+![Puissance descente](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/puissance_descente.png)
+
+Le deuxième contact fin de course permet de stopper le moteur :
+
+![arret descente](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/fin_de_course_descente.png)
+
+### Pilotage par le raspberry
+
+La logique est la même que pour le pilotage manuel. Le circuit de commande se monte en parrallèle du circuit manuel.
+ 
 
 # Réalisation 
 
 ## Schéma électrique
 
-Les schémas électrique sont sidponibles au format QET et au format PDF.
+Les schémas électrique sont disponibles au format QET et au format PDF.
 Le format QET est modifiable par QElectrotech (Logiciel gratuit et open source) [disponible ici](https://qelectrotech.org/).
 
 Retrouvez le schéma électrique de l'ensemble ici :
  * Format [QET](https://github.com/guillaume-rico/serreFlex/raw/master/sch/ouverture_serre.qet) 
  * Format [1.0 PDF](https://github.com/guillaume-rico/serreFlex/raw/master/sch/ouverture_serre_1.0.pdf)
 
+ 
+![Schéma électrique folio 3 sur 6](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/sch_elec_3.png)
+![Schéma électrique folio 4 sur 6](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/sch_elec_4.png)
+![Schéma électrique folio 5 sur 6](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/sch_elec_5.png)
+![Schéma électrique folio 6 sur 6](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/sch_elec_6.png)
+ 
+ 
 ## Nomenclature
 
 Retrouvez ici la liste du matériel nécéssaire :
