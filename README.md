@@ -92,9 +92,45 @@ Retrouvez ici la liste du matériel nécéssaire :
 | GPO | 1 | Bloc relai | |  |
 |  | 2 | Presse étoupe D16 | LAPP SKINTOP CLICK 16 RAL 7035 |  |
 |  | 3 | Presse étoupe D25 | LAPP SKINTOP CLICK 25 RAL 7035 |  |
+|  | 1 | Presse étoupe RJ45 |  |  |
+|  | 1 | Presse étoupe capteur de température |  |  |
 |  | 1 | Boitier | |  |
 | SAU | 1 | Arret d'urgence | Eaton 216516 - M22-PV/K11 |  |
 | SAU | 1 | Etiquette Arret d'urgence | Eaton 216465 - M22-XAK1 |  |
+|  | 1 | Capteur de température |  |  |
 
 # Code
+
+# Autre
+
+## Acquition d'une donnée 4-20mA
+
+Pour réaliser la mesure d'une donnée 4-20mA avec un raspberry, il faut réaliser deux actions :
+
+ * Convertir la donnée courant en tension
+ * Réaliser la mesure de la tension 
+ 
+### Conversion courant tension 
+
+En général, les capteurs industrielles 4/20mA demandent une alimentation 24V. Il y  a deux type de capteurs : les capteurs 2 fils et 3 fils. La différence tient dans l'ajout d'un fil de masse.
+
+On alimente le capteur en 24V puis on va lire le courant passant par la pate de sortie. Pour générer une tension, on fait passer le courant par une résistance :
+
+![Branchement electrique](https://raw.githubusercontent.com/wiki/guillaume-rico/serreFlex/img/branchement_4_20mA.png)
+
+Calcul de la valeur de la résistance. Le composant utilisé classiquement est l'ADS1X15 (ADS1015, ADS1115). La tension de lecture maximum est de 4.096V pour un courant de 20mA.
+
+En appliquant U = R x I => R = U / I => R = 4.096 / 0.02 => R = 205 Ohm
+
+Ce n'est pas une valeur standard. On choisit la valeur de 200Ohm ce qui donnera une tension maximum de U = R x I = 200 * 0.02 = 4V
+
+### Acquisition
+
+Plusieurs modules ADC permettent de réaliser la mesure de la tension. Un modèle classique est l'ADS1X15 (ADS1015, ADS1115).
+
+Il communique avec la lisaison I2C du raspberry.
+
+Un bon guide pour faire la mesure : https://cdn-learn.adafruit.com/downloads/pdf/adafruit-4-channel-adc-breakouts.pdf
+
+
 
