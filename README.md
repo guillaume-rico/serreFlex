@@ -132,5 +132,57 @@ Il communique avec la lisaison I2C du raspberry.
 
 Un bon guide pour faire la mesure : https://cdn-learn.adafruit.com/downloads/pdf/adafruit-4-channel-adc-breakouts.pdf
 
+On construit la config 
+| Bit de config |    Valeur  |
+| ------------- | ---------- |
+| CONFIG_CQUE_NONE       | 0x0003 |
+| CONFIG_CLAT_NONLAT     | 0x0000 |
+| CONFIG_CPOL_ACTVLOW    | 0x0000 |
+| CONFIG_CMODE_TRAD      | 0x0000 |
+| CONFIG_MODE_SINGLE     | 0x0100 |
+|                        | 0x0103 (259) |
+| Sélection de la vitesse | |
+| CONFIG_DR_1600SPS      | 0x0080 |
+|                        | 0x0183 |
+|  | |
+| Set PGA/voltage range, defaults to +-6.144V | |
+| CONFIG_PGA_4_096V      | 0x0200 |
+|                        | 0x0383 |
+| CONFIG_PGA_6_144V      | 0x0000 |
+|                        | 0x0103 |
+|  | |
+| Select channel | |
+| CONFIG_MUX_SINGLE_0    | 0x4000 |
+|               4.096    | 0x4383 |
+|               6.144    | 0x4183 |
+| CONFIG_MUX_SINGLE_1    | 0x5000 |
+| CONFIG_MUX_SINGLE_2    | 0x6000 |
+| CONFIG_MUX_SINGLE_3    | 0x7000 |
+|  | |
+| Start acquisition |
+| CONFIG_OS_SINGLE       | 0x8000 |
+|               4.096    | 0xC383 (50051) |
+|               6.144    | 0xC183 |
+| 4.096 Voie 1 | 0xC383 |
+| 4.096 Voie 2 | 0xD383 |
+| 4.096 Voie 3 | 0xE383 |
+| 4.096 Voie 4 | 0xF383 |
 
+En résumé, pour lancer l'acquisition d'une des 4 voies :
+ * Voie 1 : /usr/sbin/i2cset -y 1 0x48 0x01 0xC3 0x83 i
+ * Voie 2 : /usr/sbin/i2cset -y 1 0x48 0x01 0xD3 0x83 i
+ * Voie 3 : /usr/sbin/i2cset -y 1 0x48 0x01 0xE3 0x83 i
+ * Voie 4 : /usr/sbin/i2cset -y 1 0x48 0x01 0xF3 0x83 i
+
+Ensuite On attend 10ms
+
+lecture du registre qui contient les entrées :
+
+/usr/sbin/i2cget -y 1 0x48 0x00 w
+
+Les valeurs récupérées doivent être remises dans le bon ordre: Si la lecture du registre donne 0xABCD, il faut le convertir en 0xCDAB
+
+Maintenant qu'on a la valeur, il suffit de faire la conversion pour avoir la tension :
+
+Tension = (Valeur du registre) / 32768.0 * 4.3096
 
