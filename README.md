@@ -179,8 +179,13 @@ Maintenant qu'on a la valeur, il suffit de faire la conversion pour avoir la ten
 Tension = (Valeur du registre) / 32768.0 * 4.096
 
 Exemple :
+
 /usr/sbin/i2cset -y 1 0x48 0x01 0xC3 0x83 i
+
 /usr/sbin/i2cget -y 1 0x48 0x00 w
+
 Résultat : 0x3008 soit 12296
+
 Tension = 12296 /32768 * 4.096 = 1,537V
+
 
