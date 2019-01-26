@@ -140,29 +140,22 @@ On construit la config
 | CONFIG_CPOL_ACTVLOW    | 0x0000 |
 | CONFIG_CMODE_TRAD      | 0x0000 |
 | CONFIG_MODE_SINGLE     | 0x0100 |
-|                        | 0x0103 (259) |
-| Sélection de la vitesse | |
+| Concatenation de ces registres :  | 0x0103 (259) |
+| Sélection de la vitesse |  |
 | CONFIG_DR_1600SPS      | 0x0080 |
-|                        | 0x0183 |
-|  | |
+| Concatenation          | 0x0183 |
 | Set PGA/voltage range, defaults to +-6.144V | |
 | CONFIG_PGA_4_096V      | 0x0200 |
-|                        | 0x0383 |
-| CONFIG_PGA_6_144V      | 0x0000 |
-|                        | 0x0103 |
-|  | |
-| Select channel | |
+| Concatenation          | 0x0383 |
+| Select channel |  |
 | CONFIG_MUX_SINGLE_0    | 0x4000 |
-|               4.096    | 0x4383 |
-|               6.144    | 0x4183 |
+| Concatenation           | 0x4383 |
 | CONFIG_MUX_SINGLE_1    | 0x5000 |
 | CONFIG_MUX_SINGLE_2    | 0x6000 |
 | CONFIG_MUX_SINGLE_3    | 0x7000 |
-|  | |
-| Start acquisition |
+| Start acquisition | |
 | CONFIG_OS_SINGLE       | 0x8000 |
 |               4.096    | 0xC383 (50051) |
-|               6.144    | 0xC183 |
 | 4.096 Voie 1 | 0xC383 |
 | 4.096 Voie 2 | 0xD383 |
 | 4.096 Voie 3 | 0xE383 |
