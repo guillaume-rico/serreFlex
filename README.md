@@ -132,7 +132,8 @@ Il communique avec la lisaison I2C du raspberry.
 
 Un bon guide pour faire la mesure : https://cdn-learn.adafruit.com/downloads/pdf/adafruit-4-channel-adc-breakouts.pdf
 
-On construit la config 
+On construit la config :
+
 | Bit de config |    Valeur  |
 | ------------- | ---------- |
 | CONFIG_CQUE_NONE       | 0x0003 |
@@ -144,7 +145,7 @@ On construit la config
 | Sélection de la vitesse |  |
 | CONFIG_DR_1600SPS      | 0x0080 |
 | Concatenation          | 0x0183 |
-| Set PGA/voltage range, defaults to +-6.144V | |
+| Set PGA/voltage range, defaults to +-6.144V |  |
 | CONFIG_PGA_4_096V      | 0x0200 |
 | Concatenation          | 0x0383 |
 | Select channel |  |
@@ -155,7 +156,7 @@ On construit la config
 | CONFIG_MUX_SINGLE_3    | 0x7000 |
 | Start acquisition | |
 | CONFIG_OS_SINGLE       | 0x8000 |
-|               4.096    | 0xC383 (50051) |
+| Concatenation  4.096    | 0xC383 (50051) |
 | 4.096 Voie 1 | 0xC383 |
 | 4.096 Voie 2 | 0xD383 |
 | 4.096 Voie 3 | 0xE383 |
@@ -173,9 +174,13 @@ lecture du registre qui contient les entrées :
 
 /usr/sbin/i2cget -y 1 0x48 0x00 w
 
-Les valeurs récupérées doivent être remises dans le bon ordre: Si la lecture du registre donne 0xABCD, il faut le convertir en 0xCDAB
-
 Maintenant qu'on a la valeur, il suffit de faire la conversion pour avoir la tension :
 
-Tension = (Valeur du registre) / 32768.0 * 4.3096
+Tension = (Valeur du registre) / 32768.0 * 4.096
+
+Exemple :
+/usr/sbin/i2cset -y 1 0x48 0x01 0xC3 0x83 i
+/usr/sbin/i2cget -y 1 0x48 0x00 w
+Résultat : 0x3008 soit 12296
+Tension = 12296 /32768 * 4.096 = 1,537V
 
